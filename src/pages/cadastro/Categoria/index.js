@@ -28,7 +28,9 @@ function CadastroCategoria() {
   }
 
   useEffect(() => {
-    const URL = 'http://localhost:8080/categorias';
+    const URL = window.location.hostname.includes('localhost')
+      ? 'http://localhost:8080/categorias'
+      : 'https://mikeflix.herokuapp.com/categorias';
 
     fetch(URL).then(async (res) => {
       const data = await res.json();
